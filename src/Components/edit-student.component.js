@@ -33,21 +33,15 @@ const EditStudent = (props) => {
       .get(
         "http://localhost:4000/students/update-student/" 
         + props.match.params.id
-      )
-      .then((res) => {
+      ).then((res) => {
         const { name, email, rollno } = res.data;
         setFormValues({ name, email, rollno });
-      })
-      .catch((err) => console.log(err));
+      }).catch((err) => console.log(err));
   }, []);
   
   // Return student form
   return (
-    <StudentForm
-      initialValues={formValues}
-      onSubmit={onSubmit}
-      enableReinitialize
-    >
+    <StudentForm initialValues={formValues} onSubmit={onSubmit} enableReinitialize>
       Update Student
     </StudentForm>
   );

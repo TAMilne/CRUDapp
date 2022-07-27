@@ -33,8 +33,7 @@ router
   .route("/update-student/:id")
   // Get Single Student
   .get((req, res) => {
-    studentSchema.findById(
-        req.params.id, (error, data) => {
+    studentSchema.findById(req.params.id, (error, data) => {
       if (error) {
         return next(error);
       } else {
@@ -45,8 +44,7 @@ router
   
   // Update Student Data
   .put((req, res, next) => {
-    studentSchema.findByIdAndUpdate(
-      req.params.id,
+    studentSchema.findByIdAndUpdate(req.params.id,
       {
         $set: req.body,
       },
@@ -65,8 +63,7 @@ router
 // Delete Student
 router.delete("/delete-student/:id", 
 (req, res, next) => {
-  studentSchema.findByIdAndRemove(
-      req.params.id, (error, data) => {
+  studentSchema.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {

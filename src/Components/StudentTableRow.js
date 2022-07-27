@@ -8,8 +8,7 @@ const StudentTableRow = (props) => {
   
   const deleteStudent = () => {
     axios
-      .delete(
-"http://localhost:4000/students/delete-student/" + _id)
+      .delete("http://localhost:4000/students/delete-student/" + _id)
       .then((res) => {
         if (res.status === 200) {
           alert("Student successfully deleted");
@@ -25,12 +24,10 @@ const StudentTableRow = (props) => {
       <td>{email}</td>
       <td>{rollno}</td>
       <td>
-        <Link className="edit-link" 
-          to={"/edit-student/" + _id}>
+        <Link className="edit-link" to={"/edit-student/" + _id}>
           Edit
         </Link>
-        <Button onClick={deleteStudent} 
-          size="sm" variant="danger">
+        <Button onClick={deleteStudent} size="sm" variant="danger">
           Delete
         </Button>
       </td>
